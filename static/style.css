@@ -1,3 +1,9 @@
 * {
     background-color:lightsalmon;
 }
+
+input {
+    margin: 10px;
+    padding: 5px;
+    background-color: white;
+}
