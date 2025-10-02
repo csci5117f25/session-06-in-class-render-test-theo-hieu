@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
 
     <title>Hi!</title>
-</head>
-<body>
-    
-<h1>Hello from Render</h1>
-<form action="/api/post" method="post">
-    <label for="username">Add your name to the guestbook:</label>
-    <input type="text" id="username" name="username" required>
-    <label for="message">Add your description:</label>
-    <input type="text" id="message" name="message">
-    <button type="submit">Submit</button>
-</form>
-{% if name %}
-<h2>and hello to {{name}}</h2>
-{% endif %}
-
-{% if people %}
+  </head>
+  <body>
+    <h1>Hello from Render</h1>
+    <form action="/api/post" method="post">
+      <label for="username">Add your name to the guestbook:</label>
+      <input type="text" id="username" name="username" required />
+      <label for="message">Add your description:</label>
+      <input type="text" id="message" name="message" />
+      <button type="submit">Submit</button>
+    </form>
+    {% if name %}
+    <h2>and hello to {{name}}</h2>
+    {% endif %} {% if session %}
+    <h1>Session Exists</h1>
+    <code>
+        <pre>
+            {{session.user|tojson}}
+        </pre>
+    </code>
+    {% else %}
+    <h1>No Session</h1>
+    {% endif %} {% if people %}
     <h2>Guestbook Entries:</h2>
     <ul>
-    {% for person in people %}
-        <li><strong>{{ person.username }}</strong>: {{ person.message }}</li>
-    {% endfor %}
+      {% for person in people %}
+      <li><strong>{{ person.username }}</strong>: {{ person.message }}</li>
+      {% endfor %}
     </ul>
-{% else %}
+    {% else %}
     <p>No entries in the guestbook yet.</p>
-{% endif %}
-</body>
+    {% endif %}
+  </body>
 </html>
