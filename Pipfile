@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 flask = "*"
 gunicorn = "*"
-psycopg2-binary = "==2.9.9"
+psycopg2 = "*"
 authlib = ">=1.0"
 requests = ">=2.27.1"
 
