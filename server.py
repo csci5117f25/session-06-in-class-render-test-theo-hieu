@@ -40,10 +40,10 @@ def callback():
 def logout():
     session.clear()
     return redirect(
-        'https://' + os.environ.get['AUTH0_DOMAIN'] +
+        'https://' + os.environ.get('AUTH0_DOMAIN') +
         '/v2/logout?' + urlencode({
             'returnTo': url_for('main', _external=True),
-            'client_id': os.environ.get['AUTH0_ID'],
+            'client_id': os.environ.get('AUTH0_ID'),
         }, quote_via=quote_plus)
     )
 
